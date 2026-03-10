@@ -23,7 +23,7 @@ ColumnLayout {
         }
     }
 
-    ListView {
+ListView {
         id: listView
         Layout.fillWidth: true
         Layout.fillHeight: true
@@ -33,21 +33,40 @@ ColumnLayout {
             id: itemDelegate
             width: listView.width
             height: 35
-            border.color: '#bcda15'
-            color: itemMouseArea.containsMouse ? '#26ca26' : "grey"
+            border.color: '#4e5a07'
+            color: itemMouseArea.containsMouse ? '#16cc16' : "grey"
 
-            Text { 
-                text: modelData
-                anchors.centerIn: parent
-                font.family: "Monospace"
+            Row {
+                anchors.fill: parent
+                anchors.leftMargin: 10
+                spacing: 10
+                // REMOVED: verticalAlignment here was causing the error
+
+                // The Index Text
+                Text {
+                    text: (index + 1) + "." 
+                    font.bold: true
+                    color: "#666666"
+                    width: 25 
+                    anchors.verticalCenter: parent.verticalCenter // This handles the alignment
+                }
+
+                // The Message Text
+                Text {
+                    text: modelData
+                    font.family: "Monospace"
+                    anchors.verticalCenter: parent.verticalCenter // This handles the alignment
+                    
+                    // If you wanted internal alignment, it would go here:
+                    // verticalAlignment: Text.AlignVCenter 
+                }
             }
-            // Move MouseArea here so 'modelData' refers to the row item
+
             MouseArea {
                 id: itemMouseArea
                 anchors.fill: parent
                 hoverEnabled: true
                 onClicked: {
-                    // This calls the C++ function with the text of the clicked row
                     DataInterfaceNode.selectFault(modelData)
                 }
             }
