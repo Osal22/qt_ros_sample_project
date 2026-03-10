@@ -39,7 +39,6 @@ void DataInterfaceNode::statusCallback(
 }
 
 void DataInterfaceNode::selectFault(const QString &faultName) {
-  RCLCPP_INFO_STREAM(get_logger(), "selectFault");
   if (m_faultDatabase.count(faultName)) {
     m_selectedInfo = m_faultDatabase[faultName];
   } else {
