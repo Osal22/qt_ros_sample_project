@@ -34,14 +34,13 @@ ColumnLayout {
             width: listView.width
             height: 35
             border.color: '#bcda15'
-            color: itemMouseArea.containsMouse ? "#eef6ee" : "white"
+            color: itemMouseArea.containsMouse ? '#26ca26' : "grey"
 
             Text { 
                 text: modelData
                 anchors.centerIn: parent
                 font.family: "Monospace"
             }
-
             // Move MouseArea here so 'modelData' refers to the row item
             MouseArea {
                 id: itemMouseArea

@@ -54,7 +54,7 @@ Window {
 
             Text { 
                 text: "Diagnostic Details:" 
-                color: "#aaaaaa"; font.bold: true 
+                color: '#db1717'; font.bold: true
             }
 
             Text {
