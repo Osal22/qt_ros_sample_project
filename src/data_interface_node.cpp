@@ -10,7 +10,7 @@ DataInterfaceNode::DataInterfaceNode(QObject *parent)
       std::bind(&DataInterfaceNode::statusCallback, this,
                 std::placeholders::_1));
 
-  m_faultDatabase["Sensor Timeout"] =
+  m_faultDatabase["Sensor Timeout_m_faultList"] =
       "Check the Ethernet cable and power supply of the LiDAR.";
   m_faultDatabase["High Temperature"] =
       "Fan failure detected in the computing unit.";

@@ -19,7 +19,7 @@ qt_add_qml_module(app_my_project
     VERSION 1.0
     RESOURCE_PREFIX "/"
     SOURCES src/main.cpp
-    QML_FILES main.qml StatusTable.qml
+    QML_FILES qml/main.qml qml/StatusTable.qml
 )
 
 target_link_libraries(app_my_project PRIVATE 
