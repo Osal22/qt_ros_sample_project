@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import MainModule 1.0
+import QtQuick.Controls
 
 ColumnLayout {
     property string title: ""
@@ -28,6 +29,18 @@ ListView {
         Layout.fillWidth: true
         Layout.fillHeight: true
         clip: true
+        
+        ScrollBar.vertical: ScrollBar {
+            id: vbar
+            active: listView.moving || listView.fliking || hovered
+            policy: ScrollBar.AsNeeded // Only shows when list is long
+            
+            contentItem: Rectangle {
+                implicitWidth: 6
+                radius: 3
+                color: vbar.pressed ? "#444" : "#888"
+            }
+        }
         
         delegate: Rectangle {
             id: itemDelegate
